@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "app.secret-key",
+    "type": "java.lang.String",
+    "description": "Clef de sécurité 'app.secret-key'"
+  },
+  {
+    "name": "app.expiration-time",
+    "type": "java.lang.String",
+    "description": "Temps d'exxpiration de la clef de sécurité 'app.expiration-time'"
+  }
+]}
