@@ -1,0 +1,44 @@
+<!-- subscription-list.component.html -->
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>SportFit</h2>
+      <a href="#">🏠 Accueil</a>
+      <a href="/subscription-list" class="active">👤 Abonnés</a>
+      <a href="/customers">👥 Clients</a>
+      <a href="/packs">📦 Offres</a>
+      <a href="/reports">📊 Statistiques</a>
+      <button class="logout" (click)="logout()" *ngIf="isLoggedIn()">Déconnexion</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h2>Liste des abonnés</h2>
+      <a href="/add-subscription" class="button">Ajouter un abonné</a>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Client</th>
+            <th>Offre</th>
+            <th>Date de début</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subscription of subscriptions">
+            <td>{{ subscription?.id }}</td>
+            <td>{{ subscription?.customer?.firstName }} {{ subscription?.customer?.lastName }}</td>
+            <td>{{ subscription?.pack?.offerName }}</td>
+            <td>{{ subscription?.startDate | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <button *ngIf="subscription" (click)="onCancelSubscription(subscription.id)">🗑️ Résilier</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+</body>

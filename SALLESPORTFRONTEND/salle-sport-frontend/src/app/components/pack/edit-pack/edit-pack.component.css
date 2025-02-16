@@ -1,0 +1,67 @@
+/* Conteneur du formulaire */
+form {
+  background: #1e1e2f;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 140, 66, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+/* Titre */
+h2 {
+  color: #ff8c42;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styles des labels */
+form label {
+  color: #e0e0e0;
+  font-size: 16px;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* Styles des inputs */
+form input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #252537;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Effet au focus */
+form input:focus {
+  border: 2px solid #ff8c42;
+}
+
+/* Bouton de soumission */
+form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #ffca28;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease-in-out;
+}
+
+/* Effet au survol */
+form button:hover {
+  background: #f0b400;
+  transform: scale(1.05);
+}

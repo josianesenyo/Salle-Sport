@@ -1,0 +1,27 @@
+<body>
+    <div class="form-container">
+        <h2>➕ Ajouter une offre</h2>
+
+        <form (ngSubmit)="onAddPack()">
+            <div class="form-group">
+                <label for="offerName">Nom de l'offre :</label>
+                <input type="text" id="offerName" [(ngModel)]="newPack.offerName" name="offerName" required />
+            </div>
+
+            <div class="form-group">
+                <label for="durationMonths">Durée en mois :</label>
+                <input type="number" id="durationMonths" [(ngModel)]="newPack.durationMonths" name="durationMonths" required />
+            </div>
+
+            <div class="form-group">
+                <label for="monthlyPrice">Prix mensuel :</label>
+                <input type="number" id="monthlyPrice" [(ngModel)]="newPack.monthlyPrice" name="monthlyPrice" required />
+            </div>
+
+            <button type="submit">➕ Ajouter</button>
+        </form>
+
+        <!-- Bouton de retour -->
+        <a href="/packs" class="back-button">⬅ Retour</a>
+    </div>
+</body>

@@ -1,0 +1,20 @@
+<div class="view-customer-container">
+    <!-- view-customer.component.html -->
+    <a href="/customers">Retour</a>
+    <h2>Détails du client</h2>
+    <p><strong>Nom :</strong> {{ customer.firstName }} {{ customer.lastName }}</p>
+    <p><strong>Numéro de téléphone :</strong> {{ customer.phoneNumber }}</p>
+    <p><strong>Date d'enregistrement :</strong> {{ customer.registrationDate | date:'dd/MM/yyyy' }}</p>
+
+    <div *ngIf="customer.activeSubscription" class="subscription-info">
+        <h3>Abonnement</h3>
+        <p><strong>Offre :</strong> {{ subscription?.pack?.offerName }}</p>
+            <p><strong>Durée de l'abonnement (en mois) :</strong> {{ subscription?.pack?.durationMonths }}</p>
+        <p><strong>Prix total de tous les mois :</strong> {{ (subscription?.pack?.monthlyPrice ?? 0) * (subscription?.pack?.durationMonths ?? 0) | currency }}</p>
+        <p><strong>Date de début de l'abonnement :</strong> {{ subscription?.startDate | date }}</p>
+
+    </div>
+    <div *ngIf="!customer?.activeSubscription">
+        <p>Client non abonné</p>
+    </div>
+</div>

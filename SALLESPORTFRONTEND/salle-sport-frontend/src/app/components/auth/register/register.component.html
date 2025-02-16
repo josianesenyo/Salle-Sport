@@ -1,0 +1,14 @@
+<h2>Inscription</h2>
+    <form (ngSubmit)="onRegister()">
+      <label for="username">Nom d'utilisateur :</label>
+      <input type="text" id="username" name="username" [(ngModel)]="user.username" required />
+
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password" required />
+
+      <label for="role">Rôle :</label>
+      <input type="text" id="role" name="role" [(ngModel)]="user.role" required />
+
+      <button type="submit">S'inscrire</button>
+    </form>
+    <div *ngIf="errorMessage">{{ errorMessage }}</div>

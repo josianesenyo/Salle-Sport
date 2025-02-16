@@ -1,0 +1,14 @@
+<h2>Statistiques</h2>
+<p><strong>Nombre total de clients (abonnés) actifs :</strong> {{ activeCustomersCount }}</p>
+<p><strong>Chiffre d'affaires mensuel estimé :</strong> {{ estimatedMonthlyRevenue | currency }}</p>
+
+<h3>Exporter les informations sur les abonnements</h3>
+<form (ngSubmit)="exportSubscriptions(startDate.value, endDate.value)">
+  <label for="startDate">Date de début :</label>
+  <input type="date" id="startDate" #startDate required />
+
+  <label for="endDate">Date de fin :</label>
+  <input type="date" id="endDate" #endDate required />
+
+  <button type="submit">Exporter</button>
+</form>

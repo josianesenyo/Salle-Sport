@@ -1,0 +1,12 @@
+<h2>Modifier une offre</h2>
+    <form (ngSubmit)="onUpdatePack()">
+        <input type="text" id="offerName" [(ngModel)]="pack.offerName" name="offerName" required />
+
+        <label for="durationMonths">Durée en mois :</label>
+        <input type="number" id="durationMonths" [(ngModel)]="pack.durationMonths" name="durationMonths" required />
+
+        <label for="monthlyPrice">Prix mensuel :</label>
+        <input type="number" id="monthlyPrice" [(ngModel)]="pack.monthlyPrice" name="monthlyPrice" required />
+
+        <button type="submit">Mettre à jour</button>
+    </form>

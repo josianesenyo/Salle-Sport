@@ -1,0 +1,93 @@
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>SportFit</h2>
+        <a href="#">🏠 Accueil</a>
+        <a href="/subscription-list" >👤 Abonnés</a>
+        <a href="/customers" class="active">👥 Clients</a>
+        <a href="/packs">📦 Offres</a>
+        <a href="/reports">📊 Statistiques</a>
+        <button class="logout" (click)="logout()" *ngIf="isLoggedIn()">Déconnexion</button>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="main-content">
+
+        <!-- Recherche Client -->
+        <div class="card search-container">
+            <input type="text" [(ngModel)]="searchTerm" (keyup)="onSearch()" placeholder="🔍 Rechercher un client...">
+        </div>
+
+        <!-- Liste des clients trouvés -->
+        <div class="table-container card" *ngIf="foundCustomers.length > 0">
+            
+            <h2>Résultats de recherche</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Téléphone</th>
+                        <th>Date d'inscription</th>
+                        <th>Abonnement</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of foundCustomers">
+                        <td>{{ customer.id }}</td>
+                        <td>{{ customer.lastName }}</td>
+                        <td>{{ customer.firstName }}</td>
+                        <td>{{ customer.phoneNumber }}</td>
+                        <td>{{ customer.registrationDate | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ customer.activeSubscription ? '✅ Oui' : '❌ Non' }}</td>
+                        <td>
+                            <button (click)="startEdit(customer.id)">✏️ Modifier</button>
+                            <button (click)="onDelete(customer.id)">🗑️ Supprimer</button>
+                            <button (click)="startView(customer.id)">🔍 Voir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Liste Complète des Clients -->
+        <div class="table-container card">
+            <a href="/add-customer" class="button">➕ Ajouter un client</a>
+            <h2>Liste des clients</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Téléphone</th>
+                        <th>Date d'inscription</th>
+                        <th>Abonnement</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customers">
+                        <td>{{ customer.id }}</td>
+                        <td>{{ customer.lastName }}</td>
+                        <td>{{ customer.firstName }}</td>
+                        <td>{{ customer.phoneNumber }}</td>
+                        <td>{{ customer.registrationDate | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ customer.activeSubscription ? '✅ Oui' : '❌ Non' }}</td>
+                        <td>
+                            <button (click)="startEdit(customer.id)">✏️ Modifier</button>
+                            <button (click)="onDelete(customer.id)">🗑️ Supprimer</button>
+                            <button (click)="startView(customer.id)">🔍 Voir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
+
+    </div>
+</div>

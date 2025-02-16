@@ -1,0 +1,21 @@
+<div class="form-container">
+    <h2>Souscrire une offre à un client</h2>
+    <form (ngSubmit)="onSubscribe()">
+      <label for="customerId">Client :</label>
+      <select id="customerId" [(ngModel)]="selectedCustomerId" name="customerId">
+        <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.firstName }} {{ customer.lastName }}</option>
+      </select>
+  
+      <label for="packId">Offre :</label>
+      <select id="packId" [(ngModel)]="selectedPackId" name="packId">
+        <option *ngFor="let pack of packs" [value]="pack.id">{{ pack.offerName }}</option>
+      </select>
+  
+      <button type="submit">Souscrire</button>
+    </form>
+  
+    <button class="back-button" (click)="goBack()">🔙 Retour</button>
+  
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </div>
+  

@@ -1,0 +1,16 @@
+<div class="edit-customer-container">
+  <h2>Modifier un client</h2>
+  <form (ngSubmit)="onUpdateCustomer()">
+    <label for="lastName">Nom :</label>
+    <input type="text" id="lastName" [(ngModel)]="customer.lastName" name="lastName" required />
+
+    <label for="firstName">Prénom :</label>
+    <input type="text" id="firstName" [(ngModel)]="customer.firstName" name="firstName" required />
+
+    <label for="phoneNumber">Numéro de téléphone :</label>
+    <input type="text" id="phoneNumber" [(ngModel)]="customer.phoneNumber" name="phoneNumber" required />
+
+    <button type="submit">Mettre à jour</button>
+  </form>
+  <p [style]="{ color: 'red' }">{{ errorMessages }}</p>
+</div>

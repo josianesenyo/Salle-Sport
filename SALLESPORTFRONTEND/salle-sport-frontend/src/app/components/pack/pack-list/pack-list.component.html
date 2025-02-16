@@ -1,0 +1,45 @@
+<div class="offers-container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>SportFit</h2>
+        <a href="#">🏠 Accueil</a>
+        <a href="/subscription-list">👤 Abonnés</a>
+        <a href="/customers">👥 Clients</a>
+        <a href="/packs" class="active">📦 Offres</a>
+        <a href="/reports">📊 Statistiques</a>
+        <button class="logout" (click)="logout()" *ngIf="isLoggedIn()">Déconnexion</button>
+    </div>
+
+    <h2>📦 Rechercher des Offres</h2>
+    <a href="/add-pack" class="button"> Ajouter une offre</a>
+    <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" (keyup)="onSearch()" placeholder="🔍 Rechercher par nom de l'offre">
+    </div>
+
+    <div *ngIf="foundPacks.length > 0">
+        <h3>Résultats de Recherche</h3>
+        <div class="offer-card" *ngFor="let pack of foundPacks">
+            <div class="offer-info">
+                <strong>{{ pack.offerName }}</strong> - {{ pack.durationMonths }} mois - 💰 {{ pack.monthlyPrice }} FCFA/mois
+            </div>
+        </div>
+    </div>
+
+    <h2>📋 Liste des Offres</h2>
+
+    <div *ngIf="packs.length > 0">
+        <div class="offer-card" *ngFor="let pack of packs">
+            <div class="offer-info">
+                <strong>{{ pack.offerName }}</strong> - {{ pack.durationMonths }} mois - 💰 {{ pack.monthlyPrice }} FCFA/mois
+            </div>
+            <div class="offer-actions">
+                <button (click)="onEdit(pack)">✏️ Modifier</button>
+                <button (click)="onDelete(pack.id)">🗑️ Supprimer</button>
+                <button (click)="onView(pack)">🔍 Afficher</button>
+            </div>
+        </div>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </div>
+    
+</div>

@@ -1,0 +1,223 @@
+/* 🌙 Thème sombre global */
+body {
+  background-color: #12121c;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  display: flex;
+}
+
+/* 📌 Sidebar */
+.sidebar {
+  width: 250px;
+  background: #1e1e2f;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar h2 {
+  color: #ff8c42;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: #e0e0e0;
+  text-decoration: none;
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #ff8c42;
+  color: #000;
+}
+
+.logout {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #e53935;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout:hover {
+  background: #c62828;
+}
+
+/* 📋 Contenu principal */
+.main-content {
+  margin-left: 270px;
+  padding: 30px;
+  flex: 1;
+  width: calc(100% - 270px);
+}
+
+/* 🎯 Titre */
+h2 {
+  color: #ff8c42;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 🔍 Barre de recherche */
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  width: 90%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #1e1e2f;
+  color: #e0e0e0;
+}
+
+/* 📌 Conteneur principal */
+.offers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-left: 250px; /* Compense la sidebar */
+  background: #12121c;
+  width: calc(100% - 250px); /* Ajuste la largeur */
+}
+
+/* 📦 Cartes des offres */
+.offer-card {
+  background: #1e1e2f;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 140, 66, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 700px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.offer-card:hover {
+  transform: scale(1.02);
+}
+
+/* 📄 Alignement du texte */
+.offer-info {
+  color: #e0e0e0;
+  font-size: 18px;
+  text-align: left;
+}
+
+/* 🎯 Boutons d'action */
+.offer-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.offer-actions button {
+  width: 120px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease-in-out;
+  padding: 8px 12px;
+}
+
+/* 🟡 Modifier */
+.offer-actions button:nth-child(1) {
+  background: #ffca28;
+  color: #000;
+}
+
+/* 🔴 Supprimer */
+.offer-actions button:nth-child(2) {
+  background: #e53935;
+  color: #fff;
+}
+
+/* 🔵 Afficher */
+.offer-actions button:nth-child(3) {
+  background: #42a5f5;
+  color: #fff;
+}
+
+/* Effet hover sur les boutons */
+.offer-actions button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* 🔘 Bouton "Ajouter une offre" aligné à droite */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 10%;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #e18514;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #ffb672;
+}
+
+/* 🛠 Responsive */
+@media (max-width: 768px) {
+  .offers-container {
+      padding-left: 0;
+      width: 100%;
+  }
+
+  .offer-card {
+      width: 95%;
+  }
+
+  .button-container {
+      justify-content: center;
+      padding-right: 0;
+  }
+}
+
+
+/* Message d'erreur */
+.error-message {
+  color: #ff4c4c;
+  font-weight: bold;
+  margin-top: 15px;
+}
